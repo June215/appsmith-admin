@@ -19,6 +19,10 @@
     {
       "id": "Returns",
       "isDefault": false
+    },
+    {
+      "id": "Public.users",
+      "isDefault": false
     }
   ],
   "viewMode": false,
@@ -27,7 +31,7 @@
   "color": "#D9E7FF",
   "icon": "shopper",
   "unpublishedAppLayout": {
-    "type": "DESKTOP"
+    "type": "FLUID"
   },
   "publishedAppLayout": {
     "type": "DESKTOP"

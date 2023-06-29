@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 1170,
+          "bottomRow": 41830,
           "containerStyle": "none",
           "snapRows": 64,
           "parentRowSpace": 1,
@@ -471,7 +471,7 @@
               "originalTopRow": 4,
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
               "maxDynamicHeight": 9000,
-              "originalBottomRow": 9,
+              "originalBottomRow": 8,
               "fontSize": "1.875rem",
               "minDynamicHeight": 4
             },
@@ -528,10 +528,10 @@
               "labelAlignment": "left",
               "renderMode": "CANVAS",
               "isLoading": false,
-              "originalTopRow": 12,
+              "originalTopRow": 8,
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
               "maxDynamicHeight": 9000,
-              "originalBottomRow": 16,
+              "originalBottomRow": 12,
               "onOptionChange": "{{utils.getOrders()}}",
               "minDynamicHeight": 4
             },
@@ -564,7 +564,7 @@
               "isLoading": false,
               "timePrecision": "minute",
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-              "originalBottomRow": 16,
+              "originalBottomRow": 12,
               "closeOnSelection": true,
               "widgetName": "dat_from",
               "minDate": "1920-12-31T18:30:00.000Z",
@@ -592,7 +592,7 @@
               "parentId": "0",
               "labelAlignment": "left",
               "renderMode": "CANVAS",
-              "originalTopRow": 12,
+              "originalTopRow": 8,
               "maxDynamicHeight": 9000,
               "firstDayOfWeek": 0,
               "maxDate": "2121-12-31T18:29:00.000Z",
@@ -746,6 +746,21 @@
                 },
                 {
                   "key": "primaryColumns.ID.computedValue"
+                },
+                {
+                  "key": "primaryColumns.ShippingAddress.buttonLabel"
+                },
+                {
+                  "key": "primaryColumns.Eta.buttonColor"
+                },
+                {
+                  "key": "primaryColumns.Eta.borderRadius"
+                },
+                {
+                  "key": "primaryColumns.Eta.boxShadow"
+                },
+                {
+                  "key": "primaryColumns.Eta.buttonLabel"
                 }
               ],
               "leftColumn": 14,
@@ -798,9 +813,9 @@
                 "Order_date",
                 "Customer",
                 "ShippingAddress",
-                "Total",
                 "Status",
                 "DeliveryFee",
+                "Total",
                 "Phone",
                 "Email",
                 "Carrier",
@@ -811,11 +826,15 @@
                 "Width",
                 "Length",
                 "height",
-                "Tracking"
+                "Tracking",
+                "customColumn1"
               ],
               "dynamicPropertyPathList": [
                 {
                   "key": "primaryColumns.Status.textColor"
+                },
+                {
+                  "key": "tableData"
                 }
               ],
               "compactMode": "TALL",
@@ -872,10 +891,10 @@
                   "isEditable": false,
                   "isCellVisible": true,
                   "isDerived": false,
-                  "label": "Total",
+                  "label": "创建员",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"Total\"]))}}",
+                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"creator_id\"]))}}",
                   "validation": {},
                   "cellBackground": "",
                   "sticky": ""
@@ -895,16 +914,16 @@
                   "fontStyle": "",
                   "enableFilter": true,
                   "enableSort": true,
-                  "isVisible": false,
+                  "isVisible": true,
                   "isDisabled": false,
                   "isCellEditable": false,
                   "isEditable": false,
                   "isCellVisible": true,
                   "isDerived": false,
-                  "label": "DeliveryFee",
+                  "label": "门线版本",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"DeliveryFee\"]))}}",
+                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"version\"]))}}",
                   "validation": {},
                   "cellBackground": "",
                   "sticky": ""
@@ -916,7 +935,7 @@
                   "originalId": "ShippingAddress",
                   "id": "ShippingAddress",
                   "alias": "ShippingAddress",
-                  "horizontalAlignment": "CENTER",
+                  "horizontalAlignment": "LEFT",
                   "verticalAlignment": "CENTER",
                   "columnType": "text",
                   "textColor": "",
@@ -930,13 +949,15 @@
                   "isEditable": false,
                   "isCellVisible": true,
                   "isDerived": false,
-                  "label": "Shipping Address",
+                  "label": "摄像机类型",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"ShippingAddress\"]))}}",
+                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"type\"]))}}",
                   "validation": {},
                   "cellBackground": "",
-                  "sticky": ""
+                  "sticky": "",
+                  "customAlias": "",
+                  "buttonLabel": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( '动作'))}}"
                 },
                 "Status": {
                   "allowCellWrapping": false,
@@ -959,10 +980,10 @@
                   "isEditable": false,
                   "isCellVisible": true,
                   "isDerived": false,
-                  "label": "Status",
+                  "label": "标注类型",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"Status\"]))}}",
+                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"label_type\"]))}}",
                   "validation": {},
                   "cellBackground": "",
                   "sticky": ""
@@ -974,24 +995,24 @@
                   "originalId": "Order_id",
                   "id": "Order_id",
                   "alias": "Order_id",
-                  "horizontalAlignment": "CENTER",
+                  "horizontalAlignment": "LEFT",
                   "verticalAlignment": "CENTER",
-                  "columnType": "number",
+                  "columnType": "text",
                   "textColor": "",
                   "textSize": "0.875rem",
                   "fontStyle": "",
                   "enableFilter": true,
                   "enableSort": true,
-                  "isVisible": false,
+                  "isVisible": true,
                   "isDisabled": false,
                   "isCellEditable": false,
                   "isEditable": false,
                   "isCellVisible": true,
                   "isDerived": false,
-                  "label": "Order ID",
+                  "label": "Site ID",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"Order_id\"]))}}",
+                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"site_id\"]))}}",
                   "sticky": "",
                   "validation": {},
                   "cellBackground": ""
@@ -1003,6 +1024,37 @@
                   "originalId": "Order_date",
                   "id": "Order_date",
                   "alias": "Order_date",
+                  "horizontalAlignment": "RIGHT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "number",
+                  "textColor": "",
+                  "textSize": "0.875rem",
+                  "fontStyle": "",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellEditable": false,
+                  "isEditable": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "Channel ID",
+                  "isSaveVisible": true,
+                  "isDiscardVisible": true,
+                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"channel\"]))}}",
+                  "sticky": "",
+                  "validation": {},
+                  "cellBackground": "",
+                  "inputFormat": "YYYY-MM-DDTHH:mm:ss.SSSZ",
+                  "outputFormat": "DD/MM/YYYY"
+                },
+                "Customer": {
+                  "allowCellWrapping": false,
+                  "index": 6,
+                  "width": 150,
+                  "originalId": "Customer",
+                  "id": "Customer",
+                  "alias": "Customer",
                   "horizontalAlignment": "LEFT",
                   "verticalAlignment": "CENTER",
                   "columnType": "date",
@@ -1017,44 +1069,15 @@
                   "isEditable": false,
                   "isCellVisible": true,
                   "isDerived": false,
-                  "label": "Order Date",
+                  "label": "视频时间",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"Order_date\"]))}}",
+                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"start_time\"]))}}",
                   "sticky": "",
                   "validation": {},
                   "cellBackground": "",
-                  "inputFormat": "YYYY-MM-DDTHH:mm:ss.SSSZ",
-                  "outputFormat": "DD/MM/YYYY"
-                },
-                "Customer": {
-                  "allowCellWrapping": false,
-                  "index": 6,
-                  "width": 150,
-                  "originalId": "Customer",
-                  "id": "Customer",
-                  "alias": "Customer",
-                  "horizontalAlignment": "CENTER",
-                  "verticalAlignment": "CENTER",
-                  "columnType": "text",
-                  "textColor": "",
-                  "textSize": "0.875rem",
-                  "fontStyle": "",
-                  "enableFilter": true,
-                  "enableSort": true,
-                  "isVisible": true,
-                  "isDisabled": false,
-                  "isCellEditable": false,
-                  "isEditable": false,
-                  "isCellVisible": true,
-                  "isDerived": false,
-                  "label": "Customer",
-                  "isSaveVisible": true,
-                  "isDiscardVisible": true,
-                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"Customer\"]))}}",
-                  "sticky": "",
-                  "validation": {},
-                  "cellBackground": ""
+                  "inputFormat": "YYYY-MM-DD hh:mm:ss",
+                  "outputFormat": "YYYY-MM-DD hh:mm:ss"
                 },
                 "Phone": {
                   "allowCellWrapping": false,
@@ -1071,16 +1094,16 @@
                   "fontStyle": "",
                   "enableFilter": true,
                   "enableSort": true,
-                  "isVisible": false,
+                  "isVisible": true,
                   "isDisabled": false,
                   "isCellEditable": false,
                   "isEditable": false,
                   "isCellVisible": true,
                   "isDerived": false,
-                  "label": "Phone",
+                  "label": "任务分配员",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"Phone\"]))}}",
+                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"tool_type\"]))}}",
                   "sticky": "",
                   "validation": {},
                   "cellBackground": ""
@@ -1092,27 +1115,29 @@
                   "originalId": "Email",
                   "id": "Email",
                   "alias": "Email",
-                  "horizontalAlignment": "CENTER",
+                  "horizontalAlignment": "LEFT",
                   "verticalAlignment": "CENTER",
-                  "columnType": "text",
+                  "columnType": "date",
                   "textColor": "",
                   "textSize": "0.875rem",
                   "fontStyle": "",
                   "enableFilter": true,
                   "enableSort": true,
-                  "isVisible": false,
+                  "isVisible": true,
                   "isDisabled": false,
                   "isCellEditable": false,
                   "isEditable": false,
                   "isCellVisible": true,
                   "isDerived": false,
-                  "label": "Email",
+                  "label": "标注评估员",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"Email\"]))}}",
+                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"created_at\"]))}}",
                   "sticky": "",
                   "validation": {},
-                  "cellBackground": ""
+                  "cellBackground": "",
+                  "inputFormat": "YYYY-MM-DD hh:mm:ss",
+                  "outputFormat": "YYYY-MM-DD hh:mm:ss"
                 },
                 "Carrier": {
                   "allowCellWrapping": false,
@@ -1129,16 +1154,16 @@
                   "fontStyle": "",
                   "enableFilter": true,
                   "enableSort": true,
-                  "isVisible": false,
+                  "isVisible": true,
                   "isDisabled": false,
                   "isCellEditable": false,
                   "isEditable": false,
                   "isCellVisible": true,
                   "isDerived": false,
-                  "label": "Carrier",
+                  "label": "算法评估员",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"Carrier\"]))}}",
+                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"statusMess\"]))}}",
                   "sticky": "",
                   "validation": {},
                   "cellBackground": ""
@@ -1164,10 +1189,10 @@
                   "isEditable": false,
                   "isCellVisible": true,
                   "isDerived": false,
-                  "label": "ShippingDate",
+                  "label": "导出状态",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"ShippingDate\"]))}}",
+                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"exportStatusMess\"]))}}",
                   "sticky": "",
                   "validation": {},
                   "cellBackground": ""
@@ -1179,27 +1204,32 @@
                   "originalId": "Eta",
                   "id": "Eta",
                   "alias": "Eta",
-                  "horizontalAlignment": "CENTER",
+                  "horizontalAlignment": "LEFT",
                   "verticalAlignment": "CENTER",
-                  "columnType": "text",
+                  "columnType": "button",
                   "textColor": "",
                   "textSize": "0.875rem",
                   "fontStyle": "",
                   "enableFilter": true,
                   "enableSort": true,
-                  "isVisible": false,
+                  "isVisible": true,
                   "isDisabled": false,
                   "isCellEditable": false,
                   "isEditable": false,
                   "isCellVisible": true,
                   "isDerived": false,
-                  "label": "Eta",
+                  "label": "操作",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"Eta\"]))}}",
+                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"operate\"]))}}",
                   "sticky": "",
                   "validation": {},
-                  "cellBackground": ""
+                  "cellBackground": "",
+                  "buttonColor": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.colors.primaryColor))}}",
+                  "borderRadius": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.borderRadius.appBorderRadius))}}",
+                  "boxShadow": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( 'none'))}}",
+                  "customAlias": "",
+                  "buttonLabel": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( '动作'))}}"
                 },
                 "WeightKg": {
                   "allowCellWrapping": false,
@@ -1396,13 +1426,40 @@
                   "isEditable": false,
                   "isCellVisible": true,
                   "isDerived": false,
-                  "label": "ID",
+                  "label": "Task ID",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"ID\"]))}}",
+                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"id\"]))}}",
                   "sticky": "",
                   "validation": {},
                   "cellBackground": ""
+                },
+                "customColumn1": {
+                  "allowCellWrapping": false,
+                  "index": 10,
+                  "width": 150,
+                  "originalId": "customColumn1",
+                  "id": "customColumn1",
+                  "alias": "",
+                  "horizontalAlignment": "CENTER",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textSize": "0.875rem",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellEditable": false,
+                  "isEditable": false,
+                  "isCellVisible": true,
+                  "isDerived": true,
+                  "label": "",
+                  "isSaveVisible": true,
+                  "isDiscardVisible": true,
+                  "computedValue": "",
+                  "validation": {},
+                  "buttonStyle": "rgb(3, 179, 101)",
+                  "labelColor": "#FFFFFF"
                 }
               },
               "onRowSelected": "{{utils.onOrderSelected();}}",
@@ -1413,7 +1470,7 @@
               "textSize": "0.875rem",
               "widgetId": "nkfoc62eb2",
               "allowAddNewRow": false,
-              "tableData": "{{utils.getOrders.data}}",
+              "tableData": "{{Api5.data}}",
               "label": "Data",
               "searchKey": "",
               "parentId": "0",
@@ -5939,7 +5996,8 @@
                   "isDisabled": false,
                   "index": 0,
                   "menuItems": {},
-                  "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
+                  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+                  "onClick": "{{storeValue()}}"
                 },
                 "groupButton2": {
                   "label": "事件标注",
@@ -6006,7 +6064,11 @@
               "hideCard": false,
               "animateLoading": true,
               "parentColumnSpace": 19.8125,
-              "dynamicTriggerPathList": [],
+              "dynamicTriggerPathList": [
+                {
+                  "key": "groupButtons.groupButton1.onClick"
+                }
+              ],
               "leftColumn": 14,
               "dynamicBindingPathList": [
                 {
@@ -6037,12 +6099,91 @@
                   "buttonColor": "{{appsmith.theme.colors.primaryColor}}"
                 }
               },
+              "originalTopRow": 14,
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-              "buttonVariant": "PRIMARY"
+              "originalBottomRow": 18
+            },
+            {
+              "widgetName": "Text1",
+              "displayName": "文本",
+              "iconSVG": "/static/media/icon.97c59b523e6f70ba6f40a10fc2c7c5b5.svg",
+              "searchTags": [
+                "typography",
+                "paragraph",
+                "label",
+                "text",
+                "文字",
+                "标题",
+                "段落",
+                "字符"
+              ],
+              "topRow": 110,
+              "bottomRow": 4175,
+              "parentRowSpace": 10,
+              "type": "TEXT_WIDGET",
+              "hideCard": false,
+              "animateLoading": true,
+              "overflow": "NONE",
+              "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+              "dynamicBindingPathList": [
+                {
+                  "key": "text"
+                },
+                {
+                  "key": "truncateButtonColor"
+                },
+                {
+                  "key": "fontFamily"
+                },
+                {
+                  "key": "borderRadius"
+                }
+              ],
+              "leftColumn": 0,
+              "shouldTruncate": false,
+              "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+              "text": "{{JSON.stringify(Api4.data, null, 2)}}",
+              "key": "dbleosu9ju",
+              "isDeprecated": false,
+              "rightColumn": 16,
+              "textAlign": "LEFT",
+              "dynamicHeight": "AUTO_HEIGHT",
+              "widgetId": "5yyek3f62b",
+              "isVisible": true,
+              "fontStyle": "BOLD",
+              "textColor": "#231F20",
+              "version": 1,
+              "parentId": "0",
+              "renderMode": "CANVAS",
+              "isLoading": false,
+              "originalTopRow": 110,
+              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+              "maxDynamicHeight": 9000,
+              "originalBottomRow": 114,
+              "fontSize": "1rem",
+              "minDynamicHeight": 4
             }
           ]
         },
         "layoutOnLoadActions": [
+          [
+            {
+              "id": "Orders_Api4",
+              "name": "Api4",
+              "confirmBeforeExecute": false,
+              "pluginType": "API",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Orders_Api5",
+              "name": "Api5",
+              "confirmBeforeExecute": false,
+              "pluginType": "API",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            }
+          ],
           [
             {
               "id": "Orders_utils.init",
@@ -6087,17 +6228,6 @@
               "pluginType": "JS",
               "jsonPathKeys": [
                 "async () => {\n  const orderTrack = await getOrderTrack.run();\n  return orderTrack.map((o, index) => {\n    return {\n      id: index,\n      Status: o.label,\n      Date: new Date(o.created).toDateString(),\n      Time: new Date(o.created).toLocaleTimeString().slice(0, 5)\n    };\n  });\n}"
-              ],
-              "timeoutInMillisecond": 10000
-            },
-            {
-              "id": "Orders_utils.getOrders",
-              "name": "utils.getOrders",
-              "collectionId": "Orders_utils",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
-              "jsonPathKeys": [
-                "async () => {\n  const orders = await getOrders.run();\n  const fromDate = dat_from.formattedDate || null;\n  const toDate = dat_to.formattedDate || null;\n  let filteredOrders = orders;\n  if (fromDate && toDate) {\n    filteredOrders = filteredOrders.filter(k => new Date(k.created) >= new Date(fromDate) && new Date(k.created) <= new Date(toDate));\n  }\n  if (sel_status.selectedOptionValue) {\n    filteredOrders = filteredOrders.filter(k => k.status === sel_status.selectedOptionValue);\n  }\n  return filteredOrders.map(o => {\n    return {\n      ID: utils.idConverter('OR', o.id),\n      Order_id: o.id,\n      Order_date: o.created,\n      Customer: o.first_name + ' ' + o.last_name,\n      Total: o.total.toLocaleString('en-US', {\n        style: 'currency',\n        currency: 'USD'\n      }),\n      DeliveryFee: o.shipping.toLocaleString('en-US', {\n        style: 'currency',\n        currency: 'USD'\n      }),\n      ShippingAddress: o.address1,\n      Status: o.status,\n      Phone: o.phone,\n      Email: o.email,\n      Carrier: o.carrier,\n      ShippingDate: o.shipping_date,\n      Eta: o.eta,\n      WeightKg: o.weight_kg ? o.weight_kg.toString() : '',\n      WeightLbs: o.weight_lbs ? o.weight_lbs.toString() : '',\n      Width: o.width ? o.width.toString() : '',\n      Length: o.length ? o.length.toString() : '',\n      height: o.height ? o.length.toString() : '',\n      Tracking: o.tracking_no\n    };\n  }).sort((a, b) => a.id - b.id);\n}"
               ],
               "timeoutInMillisecond": 10000
             }
