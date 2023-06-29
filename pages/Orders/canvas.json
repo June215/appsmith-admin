@@ -694,9 +694,6 @@
                   "key": "primaryColumns.camera_id.computedValue"
                 },
                 {
-                  "key": "primaryColumns.start_time.computedValue"
-                },
-                {
                   "key": "primaryColumns.end_time.computedValue"
                 },
                 {
@@ -791,6 +788,9 @@
                 },
                 {
                   "key": "primaryColumns.labeler_id_name.computedValue"
+                },
+                {
+                  "key": "primaryColumns.assigner_id_name.computedValue"
                 }
               ],
               "leftColumn": 14,
@@ -872,7 +872,8 @@
                 "is_deleted",
                 "camera",
                 "evaluate",
-                "labeler_id_name"
+                "labeler_id_name",
+                "assigner_id_name"
               ],
               "dynamicPropertyPathList": [
                 {
@@ -992,7 +993,7 @@
                   "label": "start_time",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"start_time\"]))}}",
+                  "computedValue": "",
                   "validation": {},
                   "cellBackground": ""
                 },
@@ -1799,7 +1800,7 @@
                   "isDisabled": false,
                   "isCellEditable": false,
                   "isEditable": false,
-                  "isCellVisible": true,
+                  "isCellVisible": false,
                   "isDerived": false,
                   "label": "is_deleted",
                   "isSaveVisible": true,
@@ -1879,16 +1880,44 @@
                   "fontStyle": "",
                   "enableFilter": true,
                   "enableSort": true,
+                  "isVisible": false,
+                  "isDisabled": false,
+                  "isCellEditable": false,
+                  "isEditable": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "标注员",
+                  "isSaveVisible": true,
+                  "isDiscardVisible": true,
+                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"labeler_id_name\"]))}}",
+                  "validation": {},
+                  "cellBackground": ""
+                },
+                "assigner_id_name": {
+                  "allowCellWrapping": false,
+                  "index": 35,
+                  "width": 150,
+                  "originalId": "assigner_id_name",
+                  "id": "assigner_id_name",
+                  "alias": "assigner_id_name",
+                  "horizontalAlignment": "CENTER",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textColor": "",
+                  "textSize": "0.875rem",
+                  "fontStyle": "",
+                  "enableFilter": true,
+                  "enableSort": true,
                   "isVisible": true,
                   "isDisabled": false,
                   "isCellEditable": false,
                   "isEditable": false,
                   "isCellVisible": true,
                   "isDerived": false,
-                  "label": "标注评估员",
+                  "label": "任务分配员",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"labeler_id_name\"]))}}",
+                  "computedValue": "{{tbl_orders.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"assigner_id_name\"]))}}",
                   "validation": {},
                   "cellBackground": ""
                 }
@@ -1901,7 +1930,7 @@
               "textSize": "0.875rem",
               "widgetId": "nkfoc62eb2",
               "allowAddNewRow": false,
-              "tableData": "{{\n  Api5.data.data.list.map((row) => {\n      row.labeler_id_name = row.labeler_id == 1845 ? '崔茹兵' : row.labeler_id == 1846 ? '王禹' : '高梦'\n\t\treturn row;\n  });\n}}",
+              "tableData": "{{\n  Api5.data.data.list.map((row) => {\n      if(row.assigner_id == 1845) row.assigner_id_name = '崔茹兵'\n      if(row.assigner_id == 1846) row.assigner_id_name = '王禹'\n      if(row.assigner_id == 1854) row.assigner_id_name = '高梦'\n\t\treturn row;\n  });\n}}",
               "label": "Data",
               "searchKey": "",
               "parentId": "0",
